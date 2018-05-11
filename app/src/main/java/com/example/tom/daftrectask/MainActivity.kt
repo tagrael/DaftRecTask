@@ -27,8 +27,8 @@ class MainActivity : AppCompatActivity() {
         elementRecyclerView.adapter = elementAdapter
     }
 
-    private fun onClickListener(element: Element) {
-        viewModel.addPreviousElement(element) //adds the value of the previous number to the element passed as the parameter
+    private fun onClickListener(element: Element, position: Int) {
+        viewModel.addPreviousElement(element, position)
         elementAdapter.notifyDataSetChanged()
     }
 

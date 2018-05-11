@@ -12,7 +12,7 @@ class ElementDataSource {
     fun populateElements(amount: Int) {
         val random = Random()
 
-        for(i in 0..(amount - 1)) {
+        for (i in 0..(amount - 1)) {
             elements.add(i, Element(random.nextInt(10), Element.Color.values()[random.nextInt(2)]))
         }
 

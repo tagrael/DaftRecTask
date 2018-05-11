@@ -20,16 +20,14 @@ class ElementViewModel: ViewModel() {
         element.value = 0
     }
 
-    fun addPreviousElement(element: Element) { //increases the value of the element passed as the parameter by the value of the previous element in the list
-        val index = elementLiveData.value?.indexOf(element)
-        if (index != null) {
-            if (index == 0) {
+    fun addPreviousElement(element: Element, position: Int) {
+            if (position == 0) {
                 element.value += elementLiveData.value?.last()?.value ?: 0
             }
             else  {
-                element.value += elementLiveData.value?.get(index - 1)?.value ?: 0
+                element.value += elementLiveData.value?.get(position - 1)?.value ?: 0
             }
-        }
+
     }
 
 }

@@ -11,7 +11,7 @@ class ElementViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
     private val valueView = itemView.valueView
     private val colorView = itemView.colorView
 
-    fun bindItem(element: Element, onItemClicked: (Element) -> Unit, onItemLongClicked: (Element) -> Boolean) {
+    fun bindItem(element: Element, onItemClicked: (Element, Int) -> Unit, onItemLongClicked: (Element) -> Boolean) {
 
         if (element.color == Element.Color.BLUE) {
             valueView.text = (element.value).toString()
@@ -23,7 +23,7 @@ class ElementViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
             colorView.setImageResource(R.drawable.red_button)
         }
 
-        itemView.setOnClickListener { onItemClicked(element) }
+        itemView.setOnClickListener { onItemClicked(element, this.layoutPosition) }
         itemView.setOnLongClickListener { onItemLongClicked(element) }
     }
 
